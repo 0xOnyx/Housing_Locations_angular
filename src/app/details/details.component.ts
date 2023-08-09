@@ -53,21 +53,23 @@ export class DetailsComponent {
   applyForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
-    email: new FormControl('')
-
-  })
+    email: new FormControl(''),
+  });
 
   constructor() {
     const housingLocationId = Number(this.route.snapshot.params['id']);
-    this.housingLocation =
-      this.housingService.getHousingLocationById(housingLocationId);
+    this.housingService
+      .getHousingLocationById(housingLocationId)
+      .then((housing) => {
+        this.housingLocation = this.housingLocation;
+      });
   }
 
-  submitApplication(){
+  submitApplication() {
     this.housingService.submitApplication(
       this.applyForm.value.firstName ?? '',
       this.applyForm.value.lastName ?? '',
-      this.applyForm.value.email ?? '',
-    )
+      this.applyForm.value.email ?? ''
+    );
   }
 }
