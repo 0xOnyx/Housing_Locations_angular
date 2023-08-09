@@ -1,3 +1,3 @@
-# u5lnxr
+# HousingLocations
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/u5lnxr)
+Simple app with angular 
